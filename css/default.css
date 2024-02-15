@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #59B4C3;
+    font-size: 12px;
+    overflow: auto;
+    color:#59B4C3;
+    /*overflow-x: hidden;
+    overflow-y: hidden;*/
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, #59B4C3 0%, #59B4C3 25%, #59B4C3 51%, #211C6A 100%);
+  -webkit-animation: AnimateBG 15s ease infinite;
+          animation: AnimateBG 15s ease infinite;
+}
+
+/*
+.bg{
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, yellow 0%, yellow 25%, yellow 51%, #ff357f 100%);
+  -webkit-animation: AnimateBG 20s ease infinite;
+          animation: AnimateBG 20s ease infinite;
+}
+
+*/
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+#mainDiv {
+    width: 100%;
+    height: 100%;
+}
+
+#loveHeart {
+    float: left;
+    width: 670px;
+    height: 620px;
+    position: relative;
+}
+
+#garden {
+    width: 100%;
+    height: 100%;
+}
+
+#elapseClock {
+    text-align: right;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+#words {
+    font-family: "sans-serif";
+    width: 500px;
+    font-size: 24px;
+    color: #EFF396;
+}
+
+#messages {
+    display: none;
+    color: #EFF396;
+}
+
+#elapseClock .digit {
+    font-family: "digit";
+    font-size: 36px
+}
+
+#loveu {
+    padding: 5px;
+    font-size: 22px;
+    margin-top: 90px;
+    margin-right: 120px;
+    text-align: right;
+    display: none
+}
+
+#loveu .signature {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#clickSound {
+    display: none
+}
+
+#code {
+    float: left;
+    width: 440px;
+    margin-top: 70px !important;
+    height: 600px;
+    color: #EFF396;
+    font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
+    font-size: 14px;
+}
+
+#code .string {
+    color: #E493B3;
+}
+
+#code .keyword {
+    color: #E493B3;
+    font-weight: bold
+}
+
+#code .placeholder {
+    margin-left: 15px
+}
+
+#code .space {
+    margin-left: 7px
+}
+
+#code .comments {
+    color: #EFF396;
+}
+
+#copyright {
+    margin-top: 100px;
+    text-align: right;
+    width: 100%;
+    color: #666
+}
+
+#errorMsg {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    position: absolute;
+    top: 100px;
+    left: 0
+}
+
+#copyright a {
+    color: #666
+}

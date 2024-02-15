@@ -1,0 +1,769 @@
+<!-- <!DOCTYPE HTML>
+<html>
+<head>
+	<title>Красуня і Чудовисько</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments"></span><br/>
+			<span class="comments"> Привіт, киць. Вирішив зробити тобі креативну валентинку,</span>
+			<span class="comments"> тому власне ти і тут.</span><br/>
+			<span class="comments"> Я вже сказав тобі скільки приємного, що боюсь слова скінчаться скоро.</span><br/>
+			<br/>
+			<span class="comments"> Все що далі напишу - почуєш не перший і не останній раз. </span><br/>
+			
+			<span class="comments"> Ти кажеш, що не любиш пафос. Я тобі постійно висловлюю свої почуття помпезно і пофосно.</span><br/>
+			<span class="comments"> Буду пробувати інакше.</span><br/>
+
+			<span class="comments"> Не подарую тобі зірку з неба, а от лампочку вкрутити - без питань. </span><br/>
+			<span class="comments"> Не маю грошей на букет з тисячі троянд. Можу на останні гроші подарувати найкращу білу троянду, яку знайду в усьому місті. </span><br/>
+			<br/>
+			<span class="comments"> Немає у мене сил кохати тебе вічно. Можу доки буду жити. Вибачай) </span><br/>
+			<span class="comments"> Не носитиму на руках, але з радістю зроблю щось важче. </span><br/>
+			<br/>
+			<span class="comments"> Помовчу, коли ти злишся, перестану параноїти, не буду сумувати, не буду видавати дивні звуки. </span><br/>
+			<br/>
+			<span class="comments"> Годувати тебе вишнями з білим вином і читати Глазового. </span><br/>
+			<span class="comments"> О, ще можу не дивитися на тебе зачаровано так довго, що тобі не комфортно. </span><br/>
+			
+			<span class="comments"> Впевнений, що список буде більший. Мене це зовсім не хвилює. </span><br/>
+			<span class="comments"> Список речей, простих і не пафосних, що зроблять тебе щасливою. Мій улюблений список. </span><br/>
+			<span class="comments"> Від щирого закоханого в тебе серця бажаю тобі щастя. </span><br/>
+			<br/>
+
+			<span class="comments"> Цьом </span><br/>
+		</div>
+
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					Нашій історії  
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					Кохаю тебе<br/>
+					<div class="signature"> - Твій лис</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		Copyright © 2024 <a href='#'>від Григорія для Ніки</a> 
+	</div>
+</div>
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	together.setFullYear(2023, 11, 20);
+	together.setHours(17);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+</script>
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Красуня і Чудовисько</title>
+
+    	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+
+		        #flipContainer {
+            perspective: 1000px;
+            width: 600px; /* Example width, adjust as needed */
+            height: 400px; /* Example height, adjust as needed */
+            margin: 20px auto;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-front {
+            /* Front side styling */
+        }
+        .card-back {
+            background-color: #f8f8f8; /* Example background, adjust as needed */
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333; /* Example text color, adjust as needed */
+        }
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+	</style>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<div id="flipContainer">
+    <div id="mainDiv" class="card">
+        <div class="card-front">
+            
+  		<div id="code">
+			<span class="comments"></span><br/>
+			<span class="comments"> Привіт, киць. Вирішив зробити тобі креативну валентинку,</span>
+			<span class="comments"> тому власне ти і тут.</span><br/>
+			<span class="comments"> Я вже сказав тобі скільки приємного, що боюсь слова скінчаться скоро.</span><br/>
+			<br/>
+			<span class="comments"> Все що далі напишу - почуєш не перший і не останній раз. </span><br/>
+			
+			<span class="comments"> Ти кажеш, що не любиш пафос. Я тобі постійно висловлюю свої почуття помпезно і пофосно.</span><br/>
+			<span class="comments"> Буду пробувати інакше.</span><br/>
+
+			<span class="comments"> Не подарую тобі зірку з неба, а от лампочку вкрутити - без питань. </span><br/>
+			<span class="comments"> Не маю грошей на букет з тисячі троянд. Можу на останні гроші подарувати найкращу білу троянду, яку знайду в усьому місті. </span><br/>
+			<br/>
+			<span class="comments"> Немає у мене сил кохати тебе вічно. Можу доки буду жити. Вибачай) </span><br/>
+			<span class="comments"> Не носитиму на руках, але з радістю зроблю щось важче. </span><br/>
+			<br/>
+			<span class="comments"> Помовчу, коли ти злишся, перестану параноїти, не буду сумувати, не буду видавати дивні звуки. </span><br/>
+			<br/>
+			<span class="comments"> Годувати тебе вишнями з білим вином і читати Глазового. </span><br/>
+			<span class="comments"> О, ще можу не дивитися на тебе зачаровано так довго, що тобі не комфортно. </span><br/>
+			
+			<span class="comments"> Впевнений, що список буде більший. Мене це зовсім не хвилює. </span><br/>
+			<span class="comments"> Список речей, простих і не пафосних, що зроблять тебе щасливою. Мій улюблений список. </span><br/>
+			<span class="comments"> Від щирого закоханого в тебе серця бажаю тобі щастя. </span><br/>
+			<br/>
+			<span class="comments"> Цьом </span><br/>
+		</div>
+	<div id="content">
+		
+	</div>
+
+    <div id="content">
+
+		
+	</div>
+  
+        </div>
+
+        <div class="card-back">
+         
+            <p>This is the back of the card.</p>
+
+        </div>
+    
+</div>
+
+
+<div id="loveHeart">
+			<canvas id="garden"></canvas>
+					<div id="words">
+						<div id="messages">
+							Нашій історії 
+							<div id="elapseClock"></div>
+						</div>
+						<div id="loveu">
+							Кохаю тебе<br/>
+							<div class="signature"> - Твій лис</div>
+						</div>
+					</div>
+				</div>
+
+			<div id="copyright">
+				Copyright © 2024 <a href='#'>від Григорія для Ніки</a> 
+			</div>	
+
+<button id="flipButton">Flip Card</button>
+
+
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	together.setFullYear(2023, 11, 20);
+	together.setHours(17);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+
+    $('#flipButton').click(function() {
+    	$('#mainDiv').toggleClass('flipped');
+    });
+
+
+</script>
+
+
+</body>
+</html>
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!DOCTYPE HTML>
+<html>
+<head>
+	<title>Красуня і Чудовисько</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<div id="mainDiv" >
+	<div id="content">
+		<div id="code" class="card">
+
+		<div class="card-front">	
+			<span class="comments"></span><br/>
+			<span class="comments"> Привіт, киць. Вирішив зробити тобі креативну валентинку,</span>
+			<span class="comments"> тому власне ти і тут.</span><br/>
+			<span class="comments"> Я вже сказав тобі скільки приємного, що боюсь слова скінчаться скоро.</span><br/>
+			<br/>
+			<span class="comments"> Все що далі напишу - почуєш не перший і не останній раз. </span><br/>
+			
+			<span class="comments"> Ти кажеш, що не любиш пафос. Я тобі постійно висловлюю свої почуття помпезно і пофосно.</span><br/>
+			<span class="comments"> Буду пробувати інакше.</span><br/>
+
+			<span class="comments"> Не подарую тобі зірку з неба, а от лампочку вкрутити - без питань. </span><br/>
+			<span class="comments"> Не маю грошей на букет з тисячі троянд. Можу на останні гроші подарувати найкращу білу троянду, яку знайду в усьому місті. </span><br/>
+			<br/>
+			<span class="comments"> Немає у мене сил кохати тебе вічно. Можу доки буду жити. Вибачай) </span><br/>
+			<span class="comments"> Не носитиму на руках, але з радістю зроблю щось важче. </span><br/>
+			<br/>
+			<span class="comments"> Помовчу, коли ти злишся, перестану параноїти, не буду сумувати, не буду видавати дивні звуки. </span><br/>
+			<br/>
+			<span class="comments"> Годувати тебе вишнями з білим вином і читати Глазового. </span><br/>
+			<span class="comments"> О, ще можу не дивитися на тебе зачаровано так довго, що тобі не комфортно. </span><br/>
+			
+			<span class="comments"> Впевнений, що список буде більший. Мене це зовсім не хвилює. </span><br/>
+			<span class="comments"> Список речей, простих і не пафосних, що зроблять тебе щасливою. Мій улюблений список. </span><br/>
+			<span class="comments"> Від щирого закоханого в тебе серця бажаю тобі щастя. </span><br/>
+			<br/>
+
+			<span class="comments"> Цьом </span><br/>
+		</div>
+
+
+        <div class="card-back" id="meAndPookie">
+         
+         	<img id="meAndPookie" style="width:100%; height:120%;" src="bandb.jpg">
+            <!-- <p style="font-size: 30px;">This is the back of the card.</p> -->
+
+        </div>
+
+
+	</div>
+
+
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					Нашій історії  
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					Кохаю тебе<br/>
+					<div class="signature"> - Твій лис</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<button id="flipButton">Тиць тут</button>
+
+	<div id="copyright">
+		Copyright © 2024 <a href='#'>від Григорія для Ніки</a> 
+	</div>
+</div>
+
+
+<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+
+		        #flipContainer {
+            perspective: 1000px;
+            width: 600px; /* Example width, adjust as needed */
+            height: 400px; /* Example height, adjust as needed */
+            margin: 20px auto;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-front {
+            /* Front side styling */
+        }
+        .card-back {
+            /*background-color: #f8f8f8;  Example background, adjust as needed */
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333; /* Example text color, adjust as needed */
+        }
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        #flipButton{
+        	position: absolute;
+        	left: 350px;
+        	bottom: 5px;
+
+        	height: 40px;
+        	width: 160px;
+        	color: #EFF396;
+        	font-size: 16px;
+        	border: none;
+        	border-radius: 10px;
+
+        	background-size: 100% 100%;
+        	background: linear-gradient(90deg, #59B4C3 0%, #211C6A 25%, #211C6A 50%, #59B4C3 100%);
+  -webkit-animation: AnimateBG 10s ease infinite;
+          animation: AnimateBG 10s ease infinite;
+        }
+
+        @-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+</style>
+
+
+
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	together.setFullYear(2023, 11, 20);
+	together.setHours(17);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+
+    $('#flipButton').click(function() {
+    	$('#code').toggleClass('flipped');
+    	
+    });
+
+</script>
+
+
+<script>
+        
+var colours=new Array('#f00', '#f06', '#f0f', '#f6f', '#f39', '#f9c'); 
+var minisize=16; 
+var maxisize=35; 
+var hearts=66; 
+var over_or_under="over"; 
+
+
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var herz=new Array();
+var herzx=new Array();
+var herzy=new Array();
+var herzs=new Array();
+var kiss=false;
+
+var meAndPookie = document.getElementById('meAndPookie');
+
+
+
+if (typeof('add')!='function') function add(funky) {
+  var oldonload=window.onload;
+  if (typeof(oldonload)!='function') window.onload=funky;
+  else window.onload=function() {
+    if (oldonload) oldonload();
+    funky();
+  }
+}
+
+add(mwah);
+
+function mwah() {
+    
+    if (document.getElementById) {
+  var i, heart;
+  
+  for (i=0; i<hearts; i++) {
+    heart=createDiv("auto", "auto");
+    heart.style.visibility="hidden";
+    heart.style.zIndex=(over_or_under=="over")?"1001":"0";
+    heart.style.color=colours[i%colours.length];
+    heart.style.pointerEvents="none";
+    
+    if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
+    else heart.style.opacity=0.75;
+    heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
+
+    // document.meAndPookie.appendChild(heart);
+    document.body.appendChild(heart);
+    herz[i]=heart;
+    herzy[i]=false;
+  }
+  set_scroll();
+  set_width();
+  herzle();
+}}
+
+function herzle() {
+  var c;
+  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+    ox=x;
+    oy=y;
+    for (c=0; c<hearts; c++) if (herzy[c]===false) {
+      herz[c].firstChild.nodeValue=String.fromCharCode(9829);
+      herz[c].style.left=(herzx[c]=x-minisize*1)+"px";
+      herz[c].style.top=(herzy[c]=y-minisize)+"px";
+      herz[c].style.fontSize=minisize+"px";
+      herz[c].style.fontWeight='normal';
+      herz[c].style.visibility='visible';
+      herzs[c]=minisize;
+      break;
+    }
+  }
+  for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
+  setTimeout("herzle()", 55);
+}
+
+document.onmousedown=pucker;
+document.onmouseup=function(){clearTimeout(kiss);};
+
+function pucker() {
+  ox=-1;
+  oy=-1;
+  kiss=setTimeout('pucker()', 100);
+}
+
+function blow_me_a_kiss(i) {
+  herzy[i]-=herzs[i]/minisize+i%2;
+  herzx[i]+=(i%5-2)/5;
+  if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
+    herz[i].style.visibility="hidden";
+    herzy[i]=false;
+  }
+  else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
+  else {
+    if (Math.random()<maxisize/herzy[i] && Math.random()<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
+    herz[i].style.top=herzy[i]+"px";
+    herz[i].style.left=herzx[i]+"px";
+  }
+}
+
+function break_my_heart(i) {
+  var t;
+  herz[i].firstChild.nodeValue=String.fromCharCode(9676);
+  herz[i].style.fontWeight='bold';
+  herzy[i]=false;
+  for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
+  setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  if (e) {
+    y=e.pageY;
+    x=e.pageX;
+  }
+  else {
+    set_scroll();
+    y=event.y+sdown;
+    x=event.x+sleft;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+window.onscroll=set_scroll;
+function set_scroll() {
+  if (typeof(self.pageYOffset)=='number') {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height;
+  div.style.width=width;
+  
+  div.style.backgroundColor="transparent";
+ return (div);
+}
+
+        
+        
+</script>
+
+
+
+</body>
+</html>
